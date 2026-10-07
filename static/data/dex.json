@@ -199,7 +199,7 @@
     {
       "entry_number": 29,
       "pokemon_species": {
-        "name": "Nidoran (Female)",
+        "name": "Nidoran♀",
         "type": ["poison"]
       }
     },
@@ -220,7 +220,7 @@
     {
       "entry_number": 32,
       "pokemon_species": {
-        "name": "Nidoran (Male)",
+        "name": "Nidoran♂",
         "type": ["poison"]
       }
     },

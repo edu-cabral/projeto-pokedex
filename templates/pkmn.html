@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{name}}{% endblock %}
+
+{% block content %}
+    <section>
+        <div id="dex-container">
+            <p id="loading">Carregando...</p>
+        </div>
+    </section>
+    <section>
+        <div id="stat-container">
+            <p id="loading">Carregando...</p>
+        </div>
+    </section>
+    <script>
+        const pkmn_name = "{{ name }}"
+    </script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pkmn.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

@@ -59,26 +59,27 @@ async function fetchPokemonDetail() {
     const container = document.getElementById('dex-container');
     const loadingDiv = document.getElementById('loading');
 
-    // Pega o id da URL (?id=25)
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+    const poke_name = pkmn_name.replace(/[^a-z0-9]+/g, '-');
 
-    if (!id) {
-        loadingDiv.innerText = "ID não informado na URL.";
+    if (!poke_name) {
+        loadingDiv.innerText = "Nome não informado na URL.";
         return;
     }
 
     try {
-        const localRes = await fetch('../data/dex.json');
+        const localRes = await fetch('/static/data/dex.json');
         const localData = await localRes.json();
+
         const entry = localData.pokemon_entries.find(
-            e => String(e.entry_number) === String(id)
+            e => toSlug(e.pokemon_species.name) === toSlug(poke_name)
         );
 
         if (!entry) {
             loadingDiv.innerText = "Pokémon não encontrado no dex local.";
             return;
         }
+
+        const id = entry.entry_number;
 
         const { name, type } = entry.pokemon_species;
         const number = String(entry.entry_number).padStart(3, '0');
@@ -100,13 +101,13 @@ async function fetchPokemonDetail() {
         loadingDiv.style.display = 'none';
 
         const types = type
-            .map(t => `<img src="../icons/type-icons/${t}.svg" alt="${t}">`)
+            .map(t => `<img src="/static/icons/type-icons/${t}.svg" alt="${t}">`)
             .join('');
 
         const card = document.createElement('div');
         card.className = 'dex-card';
         card.innerHTML = `
-            <img class="pokemon-image" src="../icons/poke-icons/${entry.entry_number}.png" alt="${name}">
+            <img class="pokemon-image" src="/static/icons/poke-icons/${entry.entry_number}.png" alt="${name}">
             <span class="pokemon-id">#${number}</span>
             <h2 class="pokemon-name">${name}</h2>
             <span class="pokemon-type">${types}</span>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('./data/dex.json')
+    fetch('/static/data/dex.json')
         .then(response => response.json())
         .then(data => {
             const list = document.getElementById('list');
@@ -13,13 +13,13 @@ function createPokeLine(entry) {
     const { name, type } = entry.pokemon_species;
 
     const types = type
-        .map(t => `<img src="./icons/type-icons/${t}.svg" alt="${t}">`)
+        .map(t => `<img src="static/icons/type-icons/${t}.svg" alt="${t}">`)
         .join('');
 
     return `
-        <a class="poke-line" id="${entry.entry_number}" href="./pages/pkmn.html?id=${entry.entry_number}">
+        <a class="poke-line" id="${entry.entry_number}" href="/pokemon/${toSlug(name)}">
             <span class="poke-number">${number}</span>
-            <img src="./icons/poke-icons/${entry.entry_number}.png" alt="${name}" class="poke-img">
+            <img src="static/icons/poke-icons/${entry.entry_number}.png" alt="${name}" class="poke-img">
             <span class="poke-name">${name}</span>
             <span class="poke-type">${types}</span>
         </a>`;

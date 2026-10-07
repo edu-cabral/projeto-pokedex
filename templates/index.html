@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Pokédex - 1996{% endblock %}
+
+{% block content %}
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="pesquisa" placeholder="Pesquisar Pokémon">
+        <button class="btn btn-primary" type="button" id="btnPesquisa">
+            Pesquisar
+        </button>
+    </div>
+    <section class="list" id="list">
+    </section>
+    <button type="button" class="btn" style="background-color: #d62828; position: fixed; bottom: 15%; right: 15%; border-radius: 100%;" id="scrollBack">
+        <i class="bi bi-arrow-up-circle-fill" style="color: white;"></i>
+    </button>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,614 @@
+{% extends "base.html" %}
+
+{% block title %}{{name}}{% endblock %}
+
+{% block content %}
+        <article id="o-que-e">
+            <div class="pkdx-text">
+                <h2>O que é a Pokédex?</h2>
+                <p>A Pokédex é uma enciclopédia digital que registra e armazena informações sobre os diferentes Pokémon que são encontrados ou capturados pelo treinador que a possui.</p>
+                <p>O dispositivo foi criado pelo renomado Professor Carvalho, com o objetivo de conseguir registrar todos os 151 Pokémon da região de Kanto.</p>
+                <p>É um grande avanço que será de grande utilidade para os treinadores na identificação e aprendizado sobre os Pokémon, além de ser um grande passo ao rumo de desvendar os segredos do mundo Pokémon.</p>
+            </div>
+            <div class="text-img">
+                <img src="{{ url_for('static', filename='icons/professor-carvalho.png') }}" alt="professor carvalho">
+                <p>Professor Carvalho, criador da Pokédex</p>
+                <img src="{{ url_for('static', filename='icons/pokedex.webp') }}" alt="pokedex">
+                <p>Pokédex, a enciclopédia digital de Pokémon</p>
+            </div>
+        </article>
+        <section id="type-chart">
+            <h2>Interações entre tipos</h2>
+            <p>Legenda:</p>
+            <ul class="type-chart-legend">
+                <li>Vantagens → Ataques com esse tipo causam 2 vezes mais dano ao adversário. <p>Exemplo: Ataques do tipo Fogo são super eficazes contra o tipo Grama</p></li>
+                <li>Não-eficaz → Ataques com esse tipo causam metade do dano ao adversário. <p>Exemplo: Ataques do tipo Água não são tão eficazes contra o tipo Grama</p></li>
+                <li>Não-afetados → Ataques com esse tipo não têm efeito no adversário. <p>Exemplo: Ataques do tipo Elétrico não afetam o tipo Terrestre</p></li>
+                <li>Fraquezas → Ataques com esse tipo causam 2 vezes mais dano ao seu Pokémon. <p>Exemplo: Ataques do tipo Pedra são super eficazes contra seu Pokémon do tipo Inseto</p></li>
+                <li>Resistências → Ataques com esse tipo causam metade do dano ao seu Pokémon. <p>Exemplo: Ataques do tipo Fogo são menos eficazes contra seu Pokémon do tipo Água</p></li>
+                <li>Imunidades → Ataques com esse tipo não têm efeito no seu Pokémon. <p>Exemplo: Ataques do tipo Lutador não afetam seu Pokémon do tipo Fantasma</p></li>
+            </ul>
+            <div class="type-chart">
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal">
+                        <p>Normal</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire">
+                        <p>Fogo</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water">
+                        <p>Água</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric">
+                        <p>Elétrico</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass">
+                        <p>Grama</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice">
+                        <p>Gelo</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting">
+                        <p>Lutador</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison">
+                        <p>Venenoso</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground">
+                        <p>Terrestre</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying">
+                        <p>Voador</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic">
+                        <p>Psíquico</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug">
+                        <p>Inseto</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock">
+                        <p>Pedra</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal"><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost">
+                        <p>Fantasma</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon">
+                        <p>Dragão</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p>Nenhuma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark">
+                        <p>Noturno</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ghost.svg') }}" alt="ghost"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel">
+                        <p>Aço</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/water.svg') }}" alt="water"><img src="{{ url_for('static', filename='icons/type-icons/electric.svg') }}" alt="electric"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/ground.svg') }}" alt="ground"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/normal.svg') }}" alt="normal"><img src="{{ url_for('static', filename='icons/type-icons/grass.svg') }}" alt="grass"><img src="{{ url_for('static', filename='icons/type-icons/ice.svg') }}" alt="ice"><img src="{{ url_for('static', filename='icons/type-icons/flying.svg') }}" alt="flying"><img src="{{ url_for('static', filename='icons/type-icons/psychic.svg') }}" alt="psychic"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/rock.svg') }}" alt="rock"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"><img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="type-icon-name">
+                        <img src="{{ url_for('static', filename='icons/type-icons/fairy.svg') }}" alt="fairy">
+                        <p>Fada</p>
+                    </div>
+                    <div class="interactions">
+                        <div class="interaction-label">
+                            <p>Vantagens →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-eficaz →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fire.svg') }}" alt="fire"><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Não-afetados →</p>
+                            <p>Nenhum</p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Fraquezas →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/poison.svg') }}" alt="poison"><img src="{{ url_for('static', filename='icons/type-icons/steel.svg') }}" alt="steel"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Resistências →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/fighting.svg') }}" alt="fighting"><img src="{{ url_for('static', filename='icons/type-icons/bug.svg') }}" alt="bug"><img src="{{ url_for('static', filename='icons/type-icons/dark.svg') }}" alt="dark"></p>
+                        </div>
+                        <div class="interaction-label">
+                            <p>Imunidades →</p>
+                            <p><img src="{{ url_for('static', filename='icons/type-icons/dragon.svg') }}" alt="dragon"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button type="button" class="btn" style="background-color: #d62828; position: fixed; bottom: 15%; right: 15%; border-radius: 100%;" id="scrollBack">
+            <i class="bi bi-arrow-up-circle-fill" style="color: white;"></i>
+        </button>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
