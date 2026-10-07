@@ -14,7 +14,7 @@
         </div>
     </section>
     <script>
-        const pkmn_name = "{{ name }}"
+        const pkmn_name = {{ name|tojson }}
     </script>
     <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
     <script src="{{ url_for('static', filename='js/pkmn.js') }}"></script>
