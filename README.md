@@ -32,5 +32,7 @@ um site baseado na franquia Pokémon, com o objetivo de entregar uma Pokédex co
 
 ---
 
-Tudo em HTML e CSS apenas, como foi proposto na atividade do Profº Jean Carlos Lourenço Costa.
+## Orientador do Projeto
+
+### Profº Jean Carlos Lourenço Costa.
 
