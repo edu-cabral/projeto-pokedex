@@ -25,19 +25,47 @@ function createPokeLine(entry) {
         </a>`;
 }
 
-const btnEnvio = document.getElementById('enviar');
+const menu = document.getElementById('menuLateral');
+const toggle = document.querySelector('.menu-toggle');
+
+// Sincroniza a animação do botão com o estado do menu
+menu.addEventListener('show.bs.offcanvas', () => toggle.classList.add('open'));
+menu.addEventListener('hide.bs.offcanvas', () => toggle.classList.remove('open'));
+
+// Fecha o menu ao clicar em um link
+menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => bootstrap.Offcanvas.getInstance(menu)?.hide());
+});
+
+document.getElementById('modalRelatar').addEventListener('show.bs.modal', () => {
+    bootstrap.Offcanvas.getInstance(menu)?.hide();
+});
+
+const formRelato = document.getElementById('formRelato');
 const descricao = document.getElementById('descricao');
 
-btnEnvio.addEventListener('click', function() {
+formRelato.addEventListener('submit', async function (event) {
+    event.preventDefault();
 
     if (descricao.value.trim() === '') {
-        alert('Erro, relato não contêm conteúdo.');
+        alert('Erro, relato não contém conteúdo.');
         return;
     }
 
-    alert('Obrigado pela sua contribuição!');
+    try {
+        const resposta = await fetch('/relato', {
+            method: 'POST',
+            body: new FormData(formRelato)
+        });
 
-    descricao.value = '';
+        if (!resposta.ok) throw new Error();
+
+        alert('Obrigado pela sua contribuição!');
+        descricao.value = '';
+        bootstrap.Modal.getInstance(document.getElementById('modalRelatar')).hide();
+    } catch {
+        alert('Não foi possível enviar o relato. Tente novamente.');
+    }
 });
 
 const btnScroll = document.getElementById('scrollBack');

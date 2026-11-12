@@ -70,6 +70,57 @@ footer {
   scroll-behavior: auto;
 }
 
+/* ---- Botão hambúrguer animado ---- */
+.menu-toggle {
+    position: relative;
+    z-index: 1056;            /* acima do offcanvas (1045) para continuar clicável */
+    width: 44px;
+    height: 44px;
+    background: var(--header-footer-red);
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: top .3s ease, transform .3s ease, opacity .2s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 14px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 28px; }
+
+.menu-toggle.open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+.off-canvas.menu-lateral {
+    width: 280px;
+    background: var(--header-footer-red);
+    padding-top: 70px;
+}
+
+.menu-lateral .menu-item { margin: 0 0 20px 0; }
+
+.menu-lateral .menu-item a,
+.menu-lateral .menu-item span {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* ---- Fundo escurecido ---- */
+.offcanvas-backdrop.show {
+    opacity: .7;              /* padrão é .5; aumente para escurecer mais */
+}
+
 .menu-item {
     display: block;
     width: fit-content;
