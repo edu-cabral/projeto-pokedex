@@ -76,7 +76,7 @@ footer {
     z-index: 1056;            /* acima do offcanvas (1045) para continuar clicável */
     width: 44px;
     height: 44px;
-    background: var(--header-footer-red);
+    background: transparent;
     border: 0;
     padding: 0;
     cursor: pointer;
@@ -100,7 +100,7 @@ footer {
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
 
-.off-canvas.menu-lateral {
+.offcanvas.menu-lateral {
     width: 280px;
     background: var(--header-footer-red);
     padding-top: 70px;
@@ -411,3 +411,14 @@ footer {
     height: 20px;
   }
 }
+
+.pokemon-forms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem;
+    justify-content: center;
+}
+
+.moves-header { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.move-list { columns: 2; list-style: none; padding-left: 0; }
+.move-level { display: inline-block; min-width: 3.5ch; opacity: .6; }
