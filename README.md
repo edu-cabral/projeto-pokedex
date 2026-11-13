@@ -1,4 +1,4 @@
-# Pokédex - 1996
+# Pokédex
 
 ## 📝 Descrição do Projeto
 um site baseado na franquia Pokémon, com o objetivo de entregar uma Pokédex com todos os Pokémons da franquia, contendo:
