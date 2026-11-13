@@ -1,7 +1,7 @@
 # Pokédex - 1996
 
 ## 📝 Descrição do Projeto
-um site baseado na franquia Pokémon, com o objetivo de entregar uma Pokédex com todos os Pokémons da região de Kanto (1º Geração), contendo:
+um site baseado na franquia Pokémon, com o objetivo de entregar uma Pokédex com todos os Pokémons da franquia, contendo:
 
 * Número da Pokédex
 * Ícone da espécie
