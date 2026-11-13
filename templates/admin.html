@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Página Administrativa{% endblock %}
+{% block content %}
+<section>
+  <a href="/logout">
+    <i class="bi bi-box-arrow-left h2"></i>
+  </a>
+  <h1>Relatos</h1>
+  <div class="tabela-wrap">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th scope="col">Relato</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in relatos %}
+        <tr class="linha" tabindex="0">
+          <td>{{ r.relato }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

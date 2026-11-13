@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Login Administrativo{% endblock %} {%
+block content %}
+<section class="login">
+  <form
+    class="login__card"
+    method="POST"
+    action="{{ url_for('admin') }}"
+  >
+    <h4>Acesso administrativo</h4>
+    <p class="login__apoio">
+      Digite a senha para ver as solicitações de cartão.
+    </p>
+
+    {% if erro %}
+    <p class="login__erro" id="erro-senha" role="alert">
+      {{ erro }} Confira e tente novamente.
+    </p>
+    {% endif %}
+
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        name="senha"
+        required
+        autofocus
+        autocomplete="current-password"
+        {% if erro %}aria-invalid="true"
+        aria-describedby="erro-senha"
+        {% endif %}
+      />
+    </div>
+
+    <button class="btn btn--primario" type="submit">Entrar</button>
+  </form>
+</section>
+{% endblock %}

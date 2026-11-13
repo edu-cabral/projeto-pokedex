@@ -58,6 +58,7 @@ nav a {
 main {
   margin: 20px;
   flex: 1;
+  min-height: 100vh;
 }
 
 footer {
@@ -104,6 +105,39 @@ footer {
     width: 280px;
     background: var(--header-footer-red);
     padding-top: 70px;
+}
+
+.menu-lateral .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.menu-lateral .btn-admin {
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    transition: background 0.2s ease;
+}
+
+.menu-lateral .btn-admin:hover {
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .menu-lateral .menu-item { margin: 0 0 20px 0; }
@@ -422,3 +456,108 @@ footer {
 .moves-header { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
 .move-list { columns: 2; list-style: none; padding-left: 0; }
 .move-level { display: inline-block; min-width: 3.5ch; opacity: .6; }
+
+.tabela-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--page-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+}
+
+.tabela {
+  width: 100%;
+  min-width: 62rem;
+  border-collapse: collapse;
+  table-layout: auto;
+  font-size: var(--nav-font);
+  font-family: normal, monospace;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tabela thead th {
+  background: var(--card-bg);
+  color: var(--header-footer-red);
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--header-footer-red);
+}
+
+.tabela tbody td {
+  border-bottom: 1px solid var(--card-border);
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tabela tbody tr:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* CPF e data não devem quebrar em várias linhas */
+.tabela th:nth-child(0),
+.tabela td:nth-child(0) {
+  white-space: nowrap;
+}
+
+/* Espaço adequado para o nome do cartão */
+.tabela th:nth-child(0),
+.tabela td:nth-child(0) {
+  min-width: 7.5rem;
+}
+
+.login {
+  flex: 1;
+  align-content: center;
+  background: var(--page-bg);
+}
+ 
+.login__card {
+  justify-self: center;
+  width: 100%;
+  max-width: 26rem;
+  padding: 3rem 2rem;
+  background: var(--header-footer-red);
+  border: 1px solid var(--card-border);
+  border-top: 8px solid var(--card-border);
+  border-radius: 10px;
+}
+ 
+.login__card h1 {
+  font-size: clamp(1.75rem, 1.25rem + 2.4vw, 2.75rem);
+  color: white;
+  margin-bottom: 0.75rem;
+}
+ 
+.login__apoio {
+  font-size: var(--nav-font);
+  color: white;
+}
+ 
+/* Erro do servidor: texto em tinta sobre fundo claro, com a borda dizendo o tom. */
+.login__erro {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: #FDECEC;
+  border-left: 4px solid #C62828;
+  border-radius: 10px;
+  font-size: var(--nav-font);
+  font-weight: 600;
+  color: gray;
+}
+ 
+/* Mesmo sinal do :user-invalid, mas vindo do servidor. */
+.campo input[aria-invalid="true"] { border-color: #C62828; }
+ 
+.login__card .btn {
+  width: 100%;
+  margin-top: 1.5rem;
+}

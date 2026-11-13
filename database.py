@@ -1,5 +1,6 @@
 import pymysql
 import os
+import hmac
 from dotenv import load_dotenv
 import logging
 
@@ -33,3 +34,21 @@ def relato_post(relato):
     finally:
         if connection:
             connection.close()
+
+def relato_get():
+    connection = None
+    try:
+        connection = db_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM relatos")
+            return cursor.fetchall()
+    except pymysql.MySQLError:
+        logger.exception("Erro ao buscar relatos")
+        return []
+    finally:
+        if connection:
+            connection.close()
+
+def senha_admin_correta(senha: str) -> bool:
+    esperada = os.environ["ADMIN_PASSWORD"]
+    return hmac.compare_digest(senha.encode(), esperada.encode())
